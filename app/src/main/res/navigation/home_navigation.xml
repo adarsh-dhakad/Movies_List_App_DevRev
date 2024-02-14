@@ -12,15 +12,15 @@
         tools:layout="@layout/fragment_movie_list">
 
         <action
-            android:id="@+id/action_go_to_sheet_detail"
-            app:destination="@+id/bottom_sheet_fragment_movie_detail"
+            android:id="@+id/action_go_to_detail"
+            app:destination="@+id/fragment_movie_detail"
             app:popUpTo="@id/fragment_movies" />
 
     </fragment>
 
-    <dialog
-        android:id="@+id/bottom_sheet_fragment_movie_detail"
-        android:name="com.devrev.app.ui.fragments.MovieDetailBottomSheetFragment"
-        tools:layout="@layout/bottom_fragment_movie_detail" >
-    </dialog>
+    <fragment
+        android:id="@+id/fragment_movie_detail"
+        android:name="com.devrev.app.ui.fragments.MovieDetailFragment"
+        tools:layout="@layout/fragment_movie_detail" >
+    </fragment>
 </navigation>

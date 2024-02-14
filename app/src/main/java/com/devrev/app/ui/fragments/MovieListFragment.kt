@@ -10,11 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
-import androidx.paging.map
 import com.devrev.app.R
 import com.devrev.app.TopMoviesViewModel
 import com.devrev.app.databinding.FragmentMovieListBinding
-import com.devrev.app.ui.MoviesAdapter
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel

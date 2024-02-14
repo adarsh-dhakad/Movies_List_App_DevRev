@@ -1,4 +1,4 @@
-package com.devrev.app.ui
+package com.devrev.app.ui.fragments
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,12 +6,15 @@ import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.devrev.app.databinding.DashboardMovieItemBinding
-import com.devrev.app.model.MovieUi
 import coil.load
 import coil.transform.RoundedCornersTransformation
+import com.devrev.app.R
+import com.devrev.app.databinding.DashboardMovieItemBinding
+import com.devrev.app.model.MovieUi
 
-class MoviesAdapter : PagingDataAdapter<MovieUi, MoviesAdapter.MoviePosterViewHolder>(movieDiffCallBack) {
+class MoviesAdapter : PagingDataAdapter<MovieUi, MoviesAdapter.MoviePosterViewHolder>(
+    movieDiffCallBack
+) {
 
     class MoviePosterViewHolder(val binding: DashboardMovieItemBinding): RecyclerView.ViewHolder(binding.root)
     {
@@ -33,11 +36,9 @@ class MoviesAdapter : PagingDataAdapter<MovieUi, MoviesAdapter.MoviePosterViewHo
         )
         holder.binding.root.setOnClickListener { view ->
             getItem(holder.absoluteAdapterPosition)?.let { movieUi ->
-//                view.findNavController().navigate(
-//                    MovieListFragmentDirections.actionGoToSheetDetail(
-//                        movie = movieUi
-//                    )
-//                )
+                view.findNavController().navigate(
+                    R.id.action_go_to_detail
+                )
             }
         }
         return holder
@@ -48,8 +49,6 @@ class MoviesAdapter : PagingDataAdapter<MovieUi, MoviesAdapter.MoviePosterViewHo
     }
 
 }
-
-
 
 private val  movieDiffCallBack = object : DiffUtil.ItemCallback<MovieUi>() {
     override fun areItemsTheSame(oldItem: MovieUi, newItem: MovieUi): Boolean {
