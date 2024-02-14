@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/fragment_movies"
         android:label="Movies"
-        android:name="com.devrev.app.ui.fragments.MovieListFragment"
+        android:name="com.devrev.app.ui.fragments.movie_list.MovieListFragment"
         tools:layout="@layout/fragment_movie_list">
 
         <action
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/fragment_movie_detail"
-        android:name="com.devrev.app.ui.fragments.MovieDetailFragment"
+        android:name="com.devrev.app.ui.fragments.movie_details.MovieDetailFragment"
         tools:layout="@layout/fragment_movie_detail" >
     </fragment>
 </navigation>

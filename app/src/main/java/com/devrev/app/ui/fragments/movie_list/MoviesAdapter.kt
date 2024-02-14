@@ -1,4 +1,4 @@
-package com.devrev.app.ui.fragments
+package com.devrev.app.ui.fragments.movie_list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
