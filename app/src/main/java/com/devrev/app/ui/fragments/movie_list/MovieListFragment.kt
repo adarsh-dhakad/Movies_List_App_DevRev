@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -16,14 +17,6 @@ import com.devrev.app.databinding.FragmentMovieListBinding
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
-/*
- * Created by Christopher Elias on 26/04/2021
- * christopher.mike.96@gmail.com
- *
- * Loop Ideas
- * Lima, Peru.
- */
 
 class MovieListFragment : Fragment(R.layout.fragment_movie_list) {
 
@@ -87,5 +80,13 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list) {
         super.onDestroyView()
         adapter = null
         _binding = null
+    }
+
+    companion object{
+        fun newInstance(type:Int):MovieListFragment{
+            return MovieListFragment().apply {
+                arguments = bundleOf("type" to type)
+            }
+        }
     }
 }

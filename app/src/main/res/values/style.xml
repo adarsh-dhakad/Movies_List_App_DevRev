@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="textViewStyleNormal.SemiBold" parent="textViewStyleLarge">
+       <item name="fontFamily">@font/protest_piot_regular</item>
+    </style>
+
+
+    <style name="textViewStyleNormal" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/textSizeNormal</item>
+        <item name="fontFamily">@font/protest_piot_regular</item>-->
+        <item name="android:textColor">@color/gray_primary</item>
+        <item name="android:textColorHint">@color/gray_secondary</item>
+        <item name="android:textColorHighlight">@color/highLightColor</item>
+    </style>
+    <style name="textViewStyleLarge" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/textSizeLarge</item>
+        <item name="fontFamily">@font/protest_piot_regular</item>-->
+        <item name="android:textColor">@color/gray_primary</item>
+        <item name="android:textColorHint">@color/gray_secondary</item>
+        <item name="android:textColorHighlight">@color/highLightColor</item>
+    </style>
+
+</resources>

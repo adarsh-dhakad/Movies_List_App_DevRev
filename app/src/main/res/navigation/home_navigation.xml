@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_feature_movies"
-    app:startDestination="@id/fragment_movies">
+    app:startDestination="@id/fragment_dashboard">
 
     <fragment
         android:id="@+id/fragment_movies"
@@ -11,16 +11,21 @@
         android:name="com.devrev.app.ui.fragments.movie_list.MovieListFragment"
         tools:layout="@layout/fragment_movie_list">
 
-        <action
-            android:id="@+id/action_go_to_detail"
-            app:destination="@+id/fragment_movie_detail"
-            app:popUpTo="@id/fragment_movies" />
-
     </fragment>
 
     <fragment
         android:id="@+id/fragment_movie_detail"
         android:name="com.devrev.app.ui.fragments.movie_details.MovieDetailFragment"
         tools:layout="@layout/fragment_movie_detail" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_dashboard"
+        android:name="com.devrev.app.ui.fragments.dashboard.DashboardFragment"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_go_to_detail"
+            app:destination="@+id/fragment_movie_detail"
+            app:popUpTo="@id/fragment_movies" />
     </fragment>
 </navigation>

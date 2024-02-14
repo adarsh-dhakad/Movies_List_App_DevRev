@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragments.dashboard.DashboardFragment">
+<!-- if you need toolbar remove comments may later we need it -->
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:title="@string/app_name"-->
+<!--        app:navigationIcon="@drawable/ic_advance"-->
+<!--        />-->
+
+<!--    <View-->
+<!--        android:id="@+id/customToolbar"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/toolbar"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1.8dp"-->
+<!--        android:background="@color/boarderColor"-->
+<!--        />-->
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/brandingTab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabIndicatorColor="@color/brandBtnColor"
+        app:tabMode="scrollable"
+        android:background="@color/viewBackgroundColor"
+        app:tabRippleColor="@color/brandColorLight"
+        app:tabSelectedTextColor="@color/brandBtnColor"
+        app:tabTextAppearance="@style/textViewStyleNormal.SemiBold" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/brandingViewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/viewBackgroundColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/brandingTab" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
