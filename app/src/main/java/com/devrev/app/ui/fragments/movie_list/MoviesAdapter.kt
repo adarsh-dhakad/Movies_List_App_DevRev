@@ -2,12 +2,14 @@ package com.devrev.app.ui.fragments.movie_list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
+import com.devrev.app.Constants
 import com.devrev.app.R
 import com.devrev.app.databinding.DashboardMovieItemBinding
 import com.devrev.app.model.MovieUi
@@ -37,7 +39,8 @@ class MoviesAdapter : PagingDataAdapter<MovieUi, MoviesAdapter.MoviePosterViewHo
         holder.binding.root.setOnClickListener { view ->
             getItem(holder.absoluteAdapterPosition)?.let { movieUi ->
                 view.findNavController().navigate(
-                    R.id.action_go_to_detail
+                    R.id.action_go_to_detail,
+                    bundleOf(Constants.MOVIES_ID_KEY to movieUi.id)
                 )
             }
         }
@@ -56,6 +59,6 @@ private val  movieDiffCallBack = object : DiffUtil.ItemCallback<MovieUi>() {
     }
 
     override fun areContentsTheSame(oldItem: MovieUi, newItem: MovieUi): Boolean {
-        return oldItem.id == newItem.id
+        return oldItem == newItem
     }
 }

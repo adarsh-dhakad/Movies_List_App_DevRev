@@ -127,4 +127,21 @@
         app:drawableStartCompat="@drawable/ic_information"
         app:drawableEndCompat="@drawable/ic_right_arrow"/>
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupAllElement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="btnMoviePlay,tvMovieDownload,tvMovieReleaseDate,tvMovieInfo,tvMovieAdvance,ivMovieDetailClose"
+        />
+
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

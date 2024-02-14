@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
+import com.devrev.app.Constants
 import com.devrev.app.R
 import com.devrev.app.TopMoviesViewModel
 import com.devrev.app.databinding.FragmentMovieListBinding
@@ -26,7 +27,12 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list) {
 
     private val moviesViewModel: TopMoviesViewModel by viewModel()
     private var adapter: MoviesAdapter? = null
+    private var fragmentType = Constants.FRAGMENT_TYPE_LATEST
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        fragmentType = arguments?.getString(Constants.FRAGMENT_TYPE)?:Constants.FRAGMENT_TYPE_LATEST
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -58,11 +64,16 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list) {
 
     private fun collectUiState() {
         viewLifecycleOwner.lifecycleScope.launch {
-            moviesViewModel.getTopMovies().collectLatest { movies ->
-
-                Log.d("devKey" , "rr"+movies.toString())
-                adapter?.submitData(movies)
-            }
+           if(fragmentType == Constants.FRAGMENT_TYPE_LATEST) {
+               moviesViewModel.getLatestMovies().collectLatest { movies ->
+                   adapter?.submitData(movies)
+               }
+           }else{
+               moviesViewModel.getPopularMovies().collectLatest {
+                   movies ->
+                   adapter?.submitData(movies)
+               }
+           }
         }
     }
 
@@ -83,9 +94,9 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list) {
     }
 
     companion object{
-        fun newInstance(type:Int):MovieListFragment{
+        fun newInstance(type:String):MovieListFragment{
             return MovieListFragment().apply {
-                arguments = bundleOf("type" to type)
+                arguments = bundleOf(Constants.FRAGMENT_TYPE to type)
             }
         }
     }
