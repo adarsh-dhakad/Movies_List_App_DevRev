@@ -27,10 +27,10 @@ class MoviesAdapter : PagingDataAdapter<MovieUi, MoviesAdapter.MoviePosterViewHo
 
             movie?.image?.let {
                 binding.ivMoviePoster.load("https://image.tmdb.org/t/p/w500/$it") {
-                    crossfade(durationMillis = 2000)
+                    crossfade(durationMillis = 1000)
                     transformations(RoundedCornersTransformation(13f))
                     dispatcher(Dispatchers.IO)
-               //     error(R.drawable.ic_movie)
+                    error(R.drawable.ic_image)
                 }
             }
         }

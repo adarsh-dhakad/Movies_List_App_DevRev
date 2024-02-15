@@ -88,6 +88,7 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list) {
         val isListEmpty = loadState.refresh is LoadState.NotLoading && adapter?.itemCount == 0
         binding.btnMoviesRetry.isVisible = loadState.source.refresh is LoadState.Error
         if(adapter?.itemCount != 0 && loadState.refresh is LoadState.NotLoading) {
+            binding.progressBarMovies.isVisible = false
          //   binding.rvMovies.isVisible = !isListEmpty
             binding.tvMoviesEmpty.isVisible = isListEmpty
           //  binding.rvMovies.isVisible = loadState.source.refresh is LoadState.NotLoading
