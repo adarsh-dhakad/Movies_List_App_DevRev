@@ -47,12 +47,15 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.paging:paging-runtime-ktx:3.2.1")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     implementation("com.github.adarsh-dhakad:Network_SDK:1.0.8")
    // i am using this library for now because for time constraints
     implementation("com.mikhaellopez:circularprogressbar:3.1.0")
 
+    implementation("com.squareup.okhttp3:mockwebserver:4.9.0")
+    // Junit 4
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    // Espresso
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
