@@ -1,17 +1,13 @@
 package com.devrev.app.ui.fragments.dashboard
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.Toolbar
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import com.devrev.app.R
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
+import com.devrev.app.Utils.reduceDragSensitivity
 import com.devrev.app.databinding.FragmentDashboardBinding
-import com.devrev.app.databinding.FragmentMovieDetailBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -36,12 +32,20 @@ class DashboardFragment :Fragment(){
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         dashBoardPagerAdapter = DashBoardPagerAdapter(requireActivity())
-        binding.brandingViewPager.adapter = dashBoardPagerAdapter
+        binding.dashboardViewPager.adapter = dashBoardPagerAdapter
+        binding.dashboardViewPager.reduceDragSensitivity(2)
+        binding.dashboardViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+            }
+        }
+        )
         TabLayoutMediator(
-            binding.brandingTab, binding.brandingViewPager
+            binding.brandingTab, binding.dashboardViewPager
         ) { tab, position ->
             when (position) {
                 0 -> {
@@ -52,7 +56,7 @@ class DashboardFragment :Fragment(){
                 }
             }
         }.attach()
-
+        binding.dashboardViewPager.isUserInputEnabled = false
         binding.brandingTab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 selectedIndex = tab?.position ?: 0
