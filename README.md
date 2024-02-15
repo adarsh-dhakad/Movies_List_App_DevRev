@@ -1,7 +1,7 @@
 ## DevRev Assignment
 
 ## Introduction
-This is a Movies List Android app made for DevRev Interview screening, It consists of two screens. It follows the MVVM architecture and utilizes Retrofit for REST API calls, KOIN for Dependency Injection, and Lifecycle for Kotlin coroutines. Additionally, the app implements a Navigation Component from Jetpack to navigate between fragments
+This is a Movies List Android app made for DevRev Interview screening, It consists of two screens. It follows the MVVM architecture and utilizes Retrofit for REST API calls, KOIN for Dependency Injection, and Lifecycle for Kotlin coroutines, and paging 3 for pagination and caching. Additionally, the app implements a Navigation Component from Jetpack to navigate between fragments
 this app is using Network SDK https://github.com/adarsh-dhakad/Network_SDK
 It improves the code readability as well as increases the hot build time significantly.
 
@@ -28,6 +28,7 @@ The app leverages modern technologies and follows best practices to ensure effic
 - Kotlin Coroutines with Lifecycle: Managing background tasks and asynchronous operations efficiently while respecting Android lifecycle.
 - Navigation Component: Navigating between fragments in the app seamlessly.
 - Sealed Classes: Handling generic responses and providing clear and consistent feedback to users.
+- paging 3 for pagination and caching.
 
 ## Testing
 
