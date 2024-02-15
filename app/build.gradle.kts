@@ -52,4 +52,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     implementation("com.github.adarsh-dhakad:Network_SDK:1.0.8")
+   // i am using this library for now because for time constraints
+    implementation("com.mikhaellopez:circularprogressbar:3.1.0")
+
 }

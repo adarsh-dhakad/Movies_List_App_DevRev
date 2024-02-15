@@ -3,12 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="boarderColor">#615959</color>
-
     <color name="brandBtnColor">#304FFE</color>
     <color name="viewBackgroundColor">#F5F5F7</color>
     <color name="brandColorLight">#D4DDFF</color>
     <color name="gray_primary">#1D1D1F</color>
     <color name="gray_secondary">#697386</color>
-
     <color name="highLightColor">#D4DDFF</color>
+    <color name="transparent">#00000000</color>
 </resources>
