@@ -13,6 +13,7 @@ import com.devrev.app.Constants
 import com.devrev.app.R
 import com.devrev.app.databinding.DashboardMovieItemBinding
 import com.devrev.app.model.MovieUi
+import kotlinx.coroutines.Dispatchers
 
 class MoviesAdapter : PagingDataAdapter<MovieUi, MoviesAdapter.MoviePosterViewHolder>(
     movieDiffCallBack
@@ -20,11 +21,16 @@ class MoviesAdapter : PagingDataAdapter<MovieUi, MoviesAdapter.MoviePosterViewHo
 
     class MoviePosterViewHolder(val binding: DashboardMovieItemBinding): RecyclerView.ViewHolder(binding.root)
     {
-        fun bind(path: String?) {
-            path?.let {
+        fun bind(movie: MovieUi?) {
+
+            binding.tvMovieName.text = movie?.title
+
+            movie?.image?.let {
                 binding.ivMoviePoster.load("https://image.tmdb.org/t/p/w500/$it") {
                     crossfade(durationMillis = 2000)
-                    transformations(RoundedCornersTransformation(12.5f))
+                    transformations(RoundedCornersTransformation(13f))
+                    dispatcher(Dispatchers.IO)
+               //     error(R.drawable.ic_movie)
                 }
             }
         }
@@ -48,14 +54,15 @@ class MoviesAdapter : PagingDataAdapter<MovieUi, MoviesAdapter.MoviePosterViewHo
     }
 
     override fun onBindViewHolder(holder: MoviePosterViewHolder, position: Int) {
-        holder.bind(getItem(position)?.image)
+        holder.bind(getItem(position))
     }
 
 }
 
 private val  movieDiffCallBack = object : DiffUtil.ItemCallback<MovieUi>() {
     override fun areItemsTheSame(oldItem: MovieUi, newItem: MovieUi): Boolean {
-        return oldItem.id == newItem.id
+        return oldItem.id == newItem.id && oldItem.title == newItem.title
+                && oldItem.createdAt == newItem.createdAt
     }
 
     override fun areContentsTheSame(oldItem: MovieUi, newItem: MovieUi): Boolean {
