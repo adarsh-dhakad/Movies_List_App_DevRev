@@ -46,4 +46,3 @@ Please make sure to enable installation from unknown sources in your device sett
 This Android app successfully fulfills the given assignment requirements. It demonstrates the use of modern technologies and best practices, providing users with a smooth and user-friendly experience for viewing users. If you have any questions or need further assistance, feel free to contact me.
 
 Thank you for reviewing my work!
-# Opening
